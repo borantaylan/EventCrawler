@@ -1,0 +1,30 @@
+{
+  "name": "event_crawler",
+  "version": "1.0.0",
+  "description": "Fetching events from knowledge graph",
+  "main": "server.js",
+  "dependencies": {
+    "alexa-app-server": "^3.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/borantaylan/EventCrawler.git"
+  },
+  "keywords": [
+    "Knowledge",
+    "Graph",
+    "alexa",
+    "skill"
+  ],
+  "author": "Boran Taylan BALCI",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/borantaylan/EventCrawler/issues"
+  },
+  "homepage": "https://github.com/borantaylan/EventCrawler#readme"
+}
