@@ -17,7 +17,7 @@ app.error = function( exception, request, response ) {
 	response.say( 'Sorry an error occured ' + error.message);
 };
 
-app.intent('event',
+app.intent('Events',
   {
     "slots":{"date":"AMAZON.DATE","locality":"LIST_OF_LOCALITIES"}
 	,"utterances":[ 
