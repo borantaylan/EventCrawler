@@ -21,7 +21,8 @@ app.intent('Events',
   {
     "slots":{"date":"AMAZON.DATE","locality":"LIST_OF_LOCALITIES"}
 	,"utterances":[ 
-		"What events are there in {locality} for {date}"
+		"what events are there in {locality} for {date}",
+		"what can I go in {locality} for {date}"
 		]
   },
   function(request,response) {
