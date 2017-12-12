@@ -128,8 +128,8 @@ app.intent('Cards', {
 									"\n Telephone: " + engArray[num]['telephone'].value +
 									"\n Email: " + engArray[num]['email'].value,
 							image: { // image is optional
-									smallImageUrl: engArray[num]['img'].value, // required
-									largeImageUrl: engArray[num]['img'].value
+									smallImageUrl: engArray[num]['img'].value.replace('http','https'), // required
+									largeImageUrl: engArray[num]['img'].value.replace('http','https')
 							}
 					}).shouldEndSession(true);
         }
