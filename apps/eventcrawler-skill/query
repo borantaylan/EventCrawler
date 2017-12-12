@@ -9,7 +9,7 @@ select (SAMPLE(?s) as ?id) ?name ?desc ?code ?stradr ?email ?telephone ?img wher
     schema:image [schema:url ?img].
 FILTER(xsd:dateTime(?x) <= "{date}"^^xsd:dateTime)
 FILTER(?y > "{date}")
-FILTER(regex(?o,"{locality}"))
+FILTER(regex(lcase(str(?o)),"{locality}"))
 }
 group by ?name ?desc ?code ?stradr ?email ?telephone ?img
 limit 10
