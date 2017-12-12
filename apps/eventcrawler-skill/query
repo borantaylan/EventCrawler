@@ -1,0 +1,15 @@
+PREFIX schema:<http://schema.org/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+select (SAMPLE(?s) as ?id) ?name ?desc ?code ?stradr ?email ?telephone ?img where
+{?s rdf:type schema:Event;schema:startDate ?x;schema:endDate ?y;
+    schema:location [schema:address [schema:addressLocality ?o]];
+    schema:name ?name;
+    schema:description ?desc;
+    schema:location [schema:address [schema:postalCode ?code;schema:streetAddress ?stradr;schema:email ?email;schema:telephone ?telephone]];
+    schema:image [schema:url ?img].
+FILTER(xsd:dateTime(?x) <= "{date}"^^xsd:dateTime)
+FILTER(?y > "{date}")
+FILTER(regex(?o,"{locality}"))
+}
+group by ?name ?desc ?code ?stradr ?email ?telephone ?img
+limit 10
