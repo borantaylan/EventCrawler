@@ -7,7 +7,8 @@ var app = new alexa.app('eventcrawler-skill');
 var rp = require('request-promise');
 var langdetect = require('langdetect');
 const fs = require('fs-extra');
-var ordinal = require('ordinal')
+var ordinal = require('ordinal');
+var AmazonDateParser = require('amazon-date-parser');
 
 app.launch(function(request, response) {
     response.say('Welcome to eventcrawler!').shouldEndSession(false);
@@ -36,7 +37,7 @@ app.intent('Events', {
         var locality = request.slot('locality');
 				console.log(__dirname + '/query');
         var data = fs.readFileSync(__dirname + '/query', 'utf8');
-        var postQuery = data.replace('{date}', formatDate(date)).replace('{date}', formatDate(date)).replace('{locality}', locality);
+        var postQuery = data.replace('{date}', formatDate(date)).replace('{date}', formatDate(AmazonDateParser(date).startDate)).replace('{locality}', locality);
         //var session = request.getSession();
         var options = {
             method: 'POST',
