@@ -34,7 +34,8 @@ app.intent('Events', {
     function(request, response) {
         var date = request.slot('date');
         var locality = request.slot('locality');
-        var data = fs.readFileSync('/home/borbal/Desktop/Alexa\ Projects/EventCrawler/apps/eventcrawler-skill/query', 'utf8');
+				console.log(__dirname + '/query');
+        var data = fs.readFileSync(__dirname + '/query', 'utf8');
         var postQuery = data.replace('{date}', formatDate(date)).replace('{date}', formatDate(date)).replace('{locality}', locality);
         //var session = request.getSession();
         var options = {
